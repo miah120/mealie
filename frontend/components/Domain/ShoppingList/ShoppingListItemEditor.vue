@@ -34,6 +34,7 @@
             :label="$t('shopping-list.note')"
             rows="1"
             auto-grow
+            autofocus
             @keypress="handleNoteKeyPress"
           ></v-textarea>
         </div>
