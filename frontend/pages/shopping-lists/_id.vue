@@ -25,11 +25,6 @@
             <v-col class="d-flex justify-end">
               <div class="d-flex justify-end mb-4 mt-2">
                 <v-btn-group dense>
-                  <v-btn text @click="openDeleteChecked()">
-                    <v-icon color="error">
-                      {{ $globals.icons.delete }}
-                    </v-icon>
-                  </v-btn>
                   <v-menu offset-y>
                     <template #activator="{ on, attrs }">
                       <v-btn text v-bind="attrs" v-on="on">
@@ -229,15 +224,23 @@
       </BaseDialog>
 
       <!-- Checked Items -->
-      <div v-if="listItems.checked && listItems.checked.length > 0" class="mt-6">
-        <button @click="toggleShowChecked()">
-          <span>
-            <v-icon>
-              {{ showChecked ? $globals.icons.chevronDown : $globals.icons.chevronRight }}
+      <div v-if="listItems.checked && listItems.checked.length > 0" class="mt-10">
+        <div class="d-flex justify-space-between">
+          <button @click="toggleShowChecked()">
+            <span>
+              <v-icon>
+                {{ showChecked ? $globals.icons.chevronDown : $globals.icons.chevronRight }}
+              </v-icon>
+            </span>
+            {{ $tc('shopping-list.items-checked-count', listItems.checked ? listItems.checked.length : 0) }}
+          </button>
+          <v-btn text @click="openDeleteChecked()">
+            <v-icon color="">
+              {{ $globals.icons.delete }}
             </v-icon>
-          </span>
-          {{ $tc('shopping-list.items-checked-count', listItems.checked ? listItems.checked.length : 0) }}
-        </button>
+          </v-btn>
+        </div>
+
         <v-divider class="my-4"></v-divider>
         <v-expand-transition>
           <div v-show="showChecked">
