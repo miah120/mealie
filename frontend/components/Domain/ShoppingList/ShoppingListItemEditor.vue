@@ -80,37 +80,37 @@
           <v-spacer />
         </div>
       </v-card-text>
+      <v-card-actions class="ma-0 pt-0 pb-1 justify-end">
+        <BaseButtonGroup
+          :buttons="[
+            ...(allowDelete ? [{
+              icon: $globals.icons.delete,
+              text: $t('general.delete'),
+              event: 'delete',
+            }] : []),
+            {
+              icon: $globals.icons.close,
+              text: $t('general.cancel'),
+              event: 'cancel',
+            },
+            {
+              icon: $globals.icons.foods,
+              text: $t('shopping-list.toggle-food'),
+              event: 'toggle-foods',
+            },
+            {
+              icon: $globals.icons.save,
+              text: $t('general.save'),
+              event: 'save',
+            },
+          ]"
+          @save="$emit('save')"
+          @cancel="$emit('cancel')"
+          @delete="$emit('delete')"
+          @toggle-foods="listItem.isFood = !listItem.isFood"
+        />
+      </v-card-actions>
     </v-card>
-    <v-card-actions class="ma-0 pt-0 pb-1 justify-end">
-      <BaseButtonGroup
-        :buttons="[
-          ...(allowDelete ? [{
-            icon: $globals.icons.delete,
-            text: $t('general.delete'),
-            event: 'delete',
-          }] : []),
-          {
-            icon: $globals.icons.close,
-            text: $t('general.cancel'),
-            event: 'cancel',
-          },
-          {
-            icon: $globals.icons.foods,
-            text: $t('shopping-list.toggle-food'),
-            event: 'toggle-foods',
-          },
-          {
-            icon: $globals.icons.save,
-            text: $t('general.save'),
-            event: 'save',
-          },
-        ]"
-        @save="$emit('save')"
-        @cancel="$emit('cancel')"
-        @delete="$emit('delete')"
-        @toggle-foods="listItem.isFood = !listItem.isFood"
-      />
-    </v-card-actions>
   </div>
 </template>
 
