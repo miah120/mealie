@@ -63,42 +63,30 @@
                         </v-icon>
                         <v-list-item-title>{{ $t("shopping-list.check-all-items") }}</v-list-item-title>
                       </v-list-item>
-                      <v-menu open-on-hover offset-x>
-                        <template #activator="{ on: menu, attrs }">
-                          <v-list-item v-bind="attrs" v-on="menu">
-                            <v-list-item-icon>
-                              <v-icon>{{ $globals.icons.dotsVertical }}</v-icon>
-                            </v-list-item-icon>
-                            <v-list-item-title>{{ "More" }}</v-list-item-title>
-                          </v-list-item>
-                        </template>
-                        <v-list>
-                          <v-list-item @click="sortByLabels()">
-                            <v-icon left>
-                              {{ $globals.icons.tags }}
-                            </v-icon>
-                            <v-list-item-title>{{ $t("shopping-list.toggle-label-sort") }}</v-list-item-title>
-                          </v-list-item>
-                          <v-list-item v-if="preferences.viewByLabel" @click="toggleReorderLabelsDialog()">
-                            <v-icon left>
-                              {{ $globals.icons.tags }}
-                            </v-icon>
-                            <v-list-item-title>{{ $t("shopping-list.reorder-labels") }}</v-list-item-title>
-                          </v-list-item>
-                          <v-list-item :to="`/group/data/labels`">
-                            <v-icon left>
-                              {{ $globals.icons.tags }}
-                            </v-icon>
-                            <v-list-item-title>{{ $t("shopping-list.manage-labels") }}</v-list-item-title>
-                          </v-list-item>
-                          <v-list-item @click="toggleSettingsDialog()">
-                            <v-icon left>
-                              {{ $globals.icons.cog }}
-                            </v-icon>
-                            <v-list-item-title>{{ $t('general.settings') }}</v-list-item-title>
-                          </v-list-item>
-                        </v-list>
-                      </v-menu>
+                      <v-list-item @click="sortByLabels()">
+                        <v-icon left>
+                          {{ $globals.icons.tags }}
+                        </v-icon>
+                        <v-list-item-title>{{ $t("shopping-list.toggle-label-sort") }}</v-list-item-title>
+                      </v-list-item>
+                      <v-list-item v-if="preferences.viewByLabel" @click="toggleReorderLabelsDialog()">
+                        <v-icon left>
+                          {{ $globals.icons.tags }}
+                        </v-icon>
+                        <v-list-item-title>{{ $t("shopping-list.reorder-labels") }}</v-list-item-title>
+                      </v-list-item>
+                      <v-list-item :to="`/group/data/labels`">
+                        <v-icon left>
+                          {{ $globals.icons.tags }}
+                        </v-icon>
+                        <v-list-item-title>{{ $t("shopping-list.manage-labels") }}</v-list-item-title>
+                      </v-list-item>
+                      <v-list-item @click="toggleSettingsDialog()">
+                        <v-icon left>
+                          {{ $globals.icons.cog }}
+                        </v-icon>
+                        <v-list-item-title>{{ $t('general.settings') }}</v-list-item-title>
+                      </v-list-item>
                     </v-list>
                   </v-menu>
                 </v-btn-group>
