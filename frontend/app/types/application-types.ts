@@ -7,6 +7,7 @@ export interface SideBarLink {
   children?: SideBarLink[];
   childrenStartExpanded?: boolean;
   restricted: boolean;
+  primary?: boolean;
 }
 
 export type SidebarLinks = Array<SideBarLink>;
