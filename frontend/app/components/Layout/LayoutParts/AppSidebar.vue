@@ -58,6 +58,19 @@
             </v-list-group>
 
             <!-- Single Item -->
+            <template v-else-if="nav.primary">
+              <v-list-item
+                :key="(nav.key || nav.title) + 'single-item'"
+                exact
+                link
+                class="my-2"
+                :elevation="1"
+                border="primary s-lg opacity-100"
+                :to="nav.to"
+                :prepend-icon="nav.icon"
+                :title="nav.title"
+              />
+            </template>
             <template v-else>
               <v-list-item
                 :key="(nav.key || nav.title) + 'single-item'"
@@ -224,13 +237,5 @@ watch(
   .no-print {
     display: none;
   }
-}
-
-.favorites-link {
-  text-decoration: none;
-}
-
-.favorites-link:hover {
-  text-decoration: underline;
 }
 </style>
